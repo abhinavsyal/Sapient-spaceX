@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "spacex-5c1e7"
+  },
+  "targets": {
+    "spacex-5c1e7": {
+      "hosting": {
+        "SpaceX": [
+          "spacex-5c1e7"
+        ]
+      }
+    }
+  }
+}
