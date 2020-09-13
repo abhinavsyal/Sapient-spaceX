@@ -1,8 +1,13 @@
-import { TestBed, async } from '@angular/core/testing';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
+import { SharedService } from './services/shared.service';
 
 describe('AppComponent', () => {
+  let component: AppComponent;
+  let fixture: ComponentFixture<AppComponent>;
+  let sharedServiceSpy: SharedService;
+
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [
@@ -11,25 +16,25 @@ describe('AppComponent', () => {
       declarations: [
         AppComponent
       ],
+      providers: [{
+        provide: SharedService,
+        useValue: jasmine.createSpyObj('SharedService', [
+          'fetchSpaceXData'
+        ])
+      }]
     }).compileComponents();
   }));
 
-  it('should create the app', () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app).toBeTruthy();
+  beforeEach(() => {
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    sharedServiceSpy = TestBed.inject(SharedService);
+
   });
 
-  it(`should have as title 'SpaceX'`, () => {
-    const fixture = TestBed.createComponent(AppComponent);
-    const app = fixture.componentInstance;
-    expect(app.title).toEqual('SpaceX');
-  });
-
-  it('should render title', () => {
-    const fixture = TestBed.createComponent(AppComponent);
+  it('should call the fetch spaceX data ', () => {
+    sharedServiceSpy = TestBed.inject(SharedService);
     fixture.detectChanges();
-    const compiled = fixture.nativeElement;
-    expect(compiled.querySelector('.content span').textContent).toContain('SpaceX app is running!');
+    expect(sharedServiceSpy.fetchSpaceXData).toHaveBeenCalled();
   });
 });

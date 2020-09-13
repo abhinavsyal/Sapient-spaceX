@@ -1,0 +1,52 @@
+.spacex-filters {
+    margin-bottom: 60px;
+     @media only screen and (min-width: 768px) and (max-width: 1200px) {
+         float: left;
+         margin: 0 10px;
+         width:calc(30% - 20px);
+     }
+     @media only screen and (min-width: 1200px) {
+         float: left;
+         margin: 0 10px;
+         width:calc(20% - 20px);
+     }
+ }
+ 
+.card-content {
+    margin-top: 10px;
+
+    .content-heading {
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: #A4A8C2;
+    }
+    .card-content-value {
+        color: #9091AD;
+    }
+    input[type="checkbox"], input[type="radio"]  {
+        opacity: 0
+    }
+    input[type="checkbox"]:checked , input[type="radio"]:checked {
+        opacity: 0
+    }
+    .btn-primary {
+        margin-bottom: 10px;
+        color: black;
+        background-color: #BED893;
+        border: none;
+    }
+    .btn-primary:hover {
+        background-color: #94C239;
+        border: none;
+    }
+    .btn-primary:not([disabled]):not(.disabled):active, .btn-primary:not([disabled]):not(.disabled).active {
+        background-color: #94C239;
+        border: none;
+    }
+    .filter-heading {
+        text-align: center;
+        hr {
+            margin: 0 40px 10px;
+        }
+    }
+}

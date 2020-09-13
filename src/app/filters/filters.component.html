@@ -1,0 +1,66 @@
+<div class="spacex-filters" fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center" fxLayout.lt-sm="column">
+    <ng-container>
+      <mat-card class="mat-card-inline" fxFlex.lt-sm="100%">
+  
+        <mat-card-content class="card-content">
+          <strong>Filters</strong>
+          <div class="filter-heading">
+            Launch Year
+            <hr>
+            <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="flex-start">
+              <div class="btn-group" data-toggle="buttons" *ngFor="let year of launchYearsList"
+                fxFlex="0 1 calc(50% - 20px)">
+                <label fxFlex="0 1 calc(50% - 20px)" [ngClass]="{'active': selectedFilters['launch_year'] === year}"
+                  class="btn btn-primary form-check-label" for="year_{{year}}">
+                  <input name="year" type="radio" id="year_{{year}}" (change)="filterMissions('launch_year', year)" autocomplete="off"
+                    class="form-check-input" [value]="year" [(ngModel)]="radioSelected">
+                  {{year}}
+                </label>
+              </div>
+            </div>
+            Successful Launch
+            <hr>
+            <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="flex-start">
+              <div class="btn-group" data-toggle="buttons" fxFlex="0 1 calc(50% - 20px)">
+                <label fxFlex="0 1 calc(50% - 20px)" [ngClass]="{'active': selectedFilters['launch_success']}"
+                  class="btn btn-primary form-check-label">
+                  <input type="radio" (change)="filterMissions('launch_success', true)" autocomplete="off"
+                    class="form-check-input" [checked]="selectedFilters['launch_success']">
+                  True
+                </label>
+              </div>
+              <div class="btn-group" data-toggle="buttons" fxFlex="0 1 calc(50% - 20px)">
+                <label fxFlex="0 1 calc(50% - 20px)" [ngClass]="{'active': selectedFilters['launch_success'] === false}"
+                  class="btn btn-primary form-check-label">
+                  <input type="radio" (change)="filterMissions('launch_success', false)" autocomplete="off"
+                    class="form-check-input" [checked]="selectedFilters['launch_success'] === false">
+                  False
+                </label>
+              </div>
+            </div>
+            Successful Landing
+            <hr>
+            <div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="flex-start">
+              <div class="btn-group" data-toggle="buttons" fxFlex="0 1 calc(50% - 20px)">
+                <label fxFlex="0 1 calc(50% - 20px)" [ngClass]="{'active': selectedFilters['land_success']}"
+                  class="btn btn-primary form-check-label">
+                  <input type="radio" (change)="filterMissions('land_success', true)" autocomplete="off"
+                    class="form-check-input" [checked]="selectedFilters['land_success']">
+                  True
+                </label>
+              </div>
+              <div class="btn-group" data-toggle="buttons" fxFlex="0 1 calc(50% - 20px)">
+                <label fxFlex="0 1 calc(50% - 20px)" [ngClass]="{'active': selectedFilters['land_success'] === false}"
+                  class="btn btn-primary form-check-label">
+                  <input type="radio" (change)="filterMissions('land_success', false)" autocomplete="off"
+                    class="form-check-input" [checked]="selectedFilters['land_success'] === false">
+                  False
+                </label>
+              </div>
+            </div>
+          </div>
+        </mat-card-content>
+  
+      </mat-card>
+    </ng-container>
+  </div>

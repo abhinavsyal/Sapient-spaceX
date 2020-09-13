@@ -1,0 +1,38 @@
+<div fxLayout="row wrap" fxLayoutGap="20px" fxLayoutAlign="center" fxLayout.lt-sm="column">
+    <ng-container *ngFor="let mission of obsMissionData | async">
+        <mat-card class="mat-card-inline" fxFlex="0 1 calc(25% - 20px)" fxFlex.lt-sm="100%"
+            fxFlex.lt-md="0 1 calc(50% - 20px)">
+
+            <img fxLayout="row" fxLayoutAlign="center" class="spacex-card-image" [src]="mission.links.mission_patch"
+                [alt]="">
+            <mat-card-content class="card-content">
+                <div class="card-content-value content-heading">{{ mission?.mission_name }} #{{ mission?.flight_number}}
+                </div>
+                <div><strong>Mission Id's: </strong>
+                    <ul>
+                        <li *ngFor="let missionId of mission.mission_id">
+                            <span class="card-content-value">{{ missionId }}</span>
+                        </li>
+                    </ul>
+                </div>
+                <div><strong>Launch Year: </strong><span class="card-content-value">{{mission?.launch_year }}</span>
+                </div>
+                <div><strong>Successful Launch: </strong><span
+                        class="card-content-value">{{ mission?.launch_success }}</span>
+                </div>
+                <div><strong>Successful Landing: </strong><span
+                        class="card-content-value">{{ misson?.launch_landing}}</span>
+                </div>
+            </mat-card-content>
+
+        </mat-card>
+    </ng-container>
+</div>
+
+<div class="spacex-developer">
+    <strong>Developed by: </strong> Abhinav Syal
+</div>
+<ng-container *ngIf="missionData.length">
+    <mat-paginator [pageSize]="8" [pageSizeOptions]="[5, 10, 25, 100]" class="spacex-pagination">
+    </mat-paginator>
+</ng-container>

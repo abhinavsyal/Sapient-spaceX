@@ -1,0 +1,24 @@
+
+.spacex-card-image {
+    width: 100%;
+    background-color: #F2F2F2;
+   }
+
+.spacex-pagination {
+    position: fixed;
+    bottom: 0;
+    height: 50px;
+    width: 100%;
+}
+.spacex-developer {
+    margin-bottom: 10%;
+    text-align: center;
+    font-size: 16pt;
+    @media only screen and (max-width: 768px) {
+        margin-bottom: 20%;
+    }
+    
+}   
+.mat-card-inline {
+    margin-bottom: 20px;
+}
